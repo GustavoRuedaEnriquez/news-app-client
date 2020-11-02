@@ -1,0 +1,20 @@
+<h1>Noticias</h1>
+
+<a routerLink="../headlines">Ir a headlines</a>
+
+<p>Ingrese el tópico que desea buscar</p>
+<input type="text" id="topic-in" name="topic-in" placeholder="Tema">
+
+<p>Seleccione el source deseado</p>
+<select name="sources-s" id="sources-s"> 
+</select>
+
+<p><button (click)="searchNews()" >Buscar</button></p>
+
+<div class="grid">
+    <div *ngFor="let item of news" class="sm-33 md-33 lg-33">
+        <img *ngIf="item.urlToImage" src="{{item.urlToImage}}" alt="news image" onError="this.src='https://sisterhoodofstyle.com/wp-content/uploads/2018/02/no-image-1.jpg'">
+        <img *ngIf="!item.urlToImage" src="https://sisterhoodofstyle.com/wp-content/uploads/2018/02/no-image-1.jpg" alt="news image">
+        <a href="{{item.url}}">{{item.title}}</a>
+    </div>
+</div>
